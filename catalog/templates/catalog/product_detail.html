@@ -1,0 +1,24 @@
+{% extends 'catalog/base.html' %}
+{% load tag %}
+{% block title %} Инфо {% endblock %}
+
+{% block content %}
+
+
+<h1 align="center"> {{ object|title }} </h1>
+
+<div class="card px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" style="width: 24rem;">
+  <div class="card-body">
+    <img class="good_logo" src="{{ object.preview| mymedia }}">
+    <h5 class="card-title">{{ object.nomination | upper}}</h5>
+    <p class="card-text">Описание: {{ object.description }}</p>
+    <p class="card-text">Категория: {{ object.category }}</p>
+    <p class="card-text">Дата создания: {{ object.created_at }}</p>
+    <p class="card-text">Дата последнего изменения: {{ object.updated_at }}</p>
+    <div class="d-grid gap-2 mx-auto">
+    <a href="#" class="btn btn-success"> Стоимость {{object.price | floatformat:'2'}} руб</a>
+    <a href="{% url 'catalog:index' %}" class="w-100 btn btn-lg btn-outline-warning"> Назад </a>
+    </div>
+    </div>
+</div>
+{% endblock %}
