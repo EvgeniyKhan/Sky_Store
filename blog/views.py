@@ -19,11 +19,6 @@ class BlogpostCreateView(CreateView):
 class BlogpostListView(ListView):
     model = Blogpost
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        queryset = queryset.filter(publication=True)
-        return queryset
-
 
 class BlogpostUpdateView(UpdateView):
     model = Blogpost
@@ -51,7 +46,7 @@ class BlogpostDetailView(DetailView):
         self.object = super().get_object(queryset)
         self.object.view_count += 1
         self.object.save()
-        return queryset
+        return self.object
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

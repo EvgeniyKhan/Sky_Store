@@ -6,29 +6,33 @@
     <h1 class="display-4">{{ object|capfirst }}</h1>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-    <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-            <div class="card-body">
-                <img class="card-img-top" src="{{ object.preview|mymedia }}" alt="Фото" style="width:100%;">
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>Описание: {{ object.content }}</li>
-                    <li>Активно: {{ object.publication }}</li>
-                    <li>Дата создания: {{ object.created_at }}</li>
-                    <li>Просмотры: {{ object.view_count }}</li>
-                </ul>
-                <div class="mb-3">
-                    <a href="{% url 'blog:edit' object.pk %}" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
-                </div>
-                <div class="mb-3">
-                    <a href="{% url 'blog:delete' object.pk %}" class="w-100 btn btn-lg btn-outline-primary">Удалить</a>
-                </div>
-                <div class="mb-3">
-                    <a href="{% url 'blog:blog_list' %}" class="w-100 btn btn-lg btn-outline-primary">Назад</a>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-body">
+                    <img class="card-img-top" src="{{ object.preview|mymedia }}" alt="Фото" style="width:100%;">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Описание: {{ object.content }}</li>
+                        <li>Активно: {{ object.publication }}</li>
+                        <li>Дата создания: {{ object.created_at }}</li>
+                        <li>Просмотры: {{ object.view_count }}</li>
+                    </ul>
+                    <div class="mb-3">
+                        <a href="{% url 'blog:edit' object.pk %}" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'blog:delete' object.pk %}"
+                           class="w-100 btn btn-lg btn-outline-primary">Удалить</a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'blog:blog_list' %}"
+                           class="w-100 btn btn-lg btn-outline-primary">Назад</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}
