@@ -9,9 +9,9 @@
                     <form method="post">
                         {% csrf_token %}
                         <p> Хотите удалить товар: "{{ object.product_name }}" ? </p>
-                        <button Type="submit" class="btn btn-success"> Подтвердить </button>
+                        <button Type="submit" class="btn btn-success"> Удалить </button>
                     </form>
-                    <a href="{% url 'catalog:product_list' %}" class="btn btn-success" style="margin-top: 10px;"> Вернуться назад </a>
+                    <a href="{% url 'catalog:product_list' %}" class="btn btn-success" style="margin-top: 10px;"> Назад </a>
                 </div>
             </div>
         </div>
