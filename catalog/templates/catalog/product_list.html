@@ -16,6 +16,7 @@
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li>- {{ object.category }}</li>
                         <li>- {{ object.description | truncatechars:100 }}</li>
+                        <li>- {{ object.active_version }}</li>
                     </ul>
                     <a href="{% url 'catalog:product_detail' object.pk %}" class="w-20 btn btn-lg btn-outline-primary">О товаре</a>
                     <a href="{% url 'catalog:update_product' object.pk %}" class="w-20 btn btn-lg btn-outline-primary">Изменить</a>
