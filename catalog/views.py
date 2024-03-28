@@ -15,13 +15,15 @@ class ProductListView(ListView):
     def get_context_data(self, *args, **kwargs):
         context_data = super().get_context_data(*args, **kwargs)
         products = Product.objects.all()
+
         for product in products:
             versions = Version.objects.filter(product=product)
             active_versions = versions.filter(is_active=True)
             if active_versions:
-                product.active_versions = active_versions.last().name
+                product.active_version = active_versions.last().name
             else:
-                product.active_versions = 'Нет активной версии'
+                product.active_version = 'Нет активной версии'
+
         context_data['object_list'] = products
         return context_data
 
