@@ -1,0 +1,78 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "category_name": "Смартфоны",
+      "category_description": ""
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "category_name": "Аксессуары для Компьютера",
+      "category_description": ""
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "category_name": "Компьютеры",
+      "category_description": ""
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "product_name": "iPhone 15 Pro max 256GB",
+      "description": "Черный Титан",
+      "preview": "preview/0.jpg-orig.jpg",
+      "category": 1,
+      "price": 15000,
+      "created_at": "2024-03-12",
+      "updated_at": "2024-03-27"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "product_name": "Apple MacBook Pro 14 M1 Pro",
+      "description": "16GB/512GB Late (Gray)",
+      "preview": "",
+      "category": 3,
+      "price": 20000,
+      "created_at": "2024-03-12",
+      "updated_at": "2024-03-27"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "product_name": "Apple Magic Mouse 3",
+      "description": "Silver",
+      "preview": "",
+      "category": 2,
+      "price": 100,
+      "created_at": "2024-03-12",
+      "updated_at": "2024-03-27"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "product_name": "Apple Magic Trackpad 2",
+      "description": "Gray",
+      "preview": "",
+      "category": 2,
+      "price": 200,
+      "created_at": "2024-03-12",
+      "updated_at": "2024-03-27"
+    }
+  }
+]
