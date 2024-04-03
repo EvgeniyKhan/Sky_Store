@@ -147,5 +147,5 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'evgeniy.igorevich9402@yandex.com'
+EMAIL_HOST_USER = os.getenv('DB_USER')
 EMAIL_HOST_PASSWORD = os.getenv('PASSWORD')
