@@ -149,3 +149,5 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.getenv('DB_USER')
 EMAIL_HOST_PASSWORD = os.getenv('PASSWORD')
+
+LOGIN_URL = '/users'
