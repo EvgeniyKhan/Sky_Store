@@ -88,10 +88,9 @@ class ProductDetailView(LoginRequiredMixin, DetailView):
         return context_data
 
 
-class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
-    permission_required = 'catalog/product_create'
     success_url = reverse_lazy('catalog:product_list')
 
     def form_valid(self, form):
