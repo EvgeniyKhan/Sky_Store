@@ -1,5 +1,7 @@
 from django.db import models
+from django.conf import settings
 
+from users.models import User
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -24,6 +26,8 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Цена за покупку')
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания', **NULLABLE)
     updated_at = models.DateField(auto_now=True, verbose_name='Дата последнего изменения', **NULLABLE)
+    publication = models.BooleanField(default=False, verbose_name='Опубликовано')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Владелец', **NULLABLE)
 
     def __str__(self):
         return f'{self.product_name}'
@@ -31,6 +35,11 @@ class Product(models.Model):
     class Meta:
         verbose_name = ("Товар")
         verbose_name_plural = ("Товары")
+        permissions = [
+            ('change_description_product', 'Change description'),
+            ('change_categories_product', 'Change category'),
+            ('change_publication_product', 'Change publication')
+        ]
 
 
 class Version(models.Model):
