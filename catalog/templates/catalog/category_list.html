@@ -2,13 +2,13 @@
 
 {% block contend %}
 
-{% for object in object_list %}
+{% for category in categories %}
 <div class="card mb-4 box-shadow col-6 m-2 ">
     <div class="card-body">
         <p><a href="{% url 'catalog:category_products' object.pk %}">
-            {{object.nomination}}</a></p>
+            {{categories.category_name}}</a></p>
 
-        <p>{{object.description}}</p>
+        <p>{{categories.category_description}}</p>
 
     </div>
 </div>
