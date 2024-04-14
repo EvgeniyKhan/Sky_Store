@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-93n5je2&l#k+g$2z)nq17xnd^a4*t9mvex9_sf-4t!(jm7ywpp'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == '1'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.getenv('HOST_1')]
 
 
 # Application definition
@@ -83,10 +83,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'SkyStore',
-        'USER': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-        'PASSWORD': 'Igorevi4'
+        'USER': os.getenv('POSTGRES_USER'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': os.getenv('POSTGRES_PORT'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD')
     }
 }
 
@@ -151,3 +151,12 @@ EMAIL_HOST_USER = os.getenv('DB_USER')
 EMAIL_HOST_PASSWORD = os.getenv('PASSWORD')
 
 LOGIN_URL = '/users'
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CACHE_ENABLED = {
+        "default": {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': os.getenv('REDIS_HOST')
+        }
+    }
