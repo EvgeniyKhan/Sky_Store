@@ -9,7 +9,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
 
 from catalog.forms import ProductForm, VersionForm, ModeratorProductForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
+from catalog.services import get_cached_categories
 
 
 @permission_required('users.add_product', raise_exception=True)
@@ -153,3 +154,12 @@ class ProductUpdateView(UserPassesTestMixin, UpdateView):
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:product_list')
+
+
+class CategoriesListView(ListView):
+    model = Category
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['categories_list'] = get_cached_categories()
+        return context
