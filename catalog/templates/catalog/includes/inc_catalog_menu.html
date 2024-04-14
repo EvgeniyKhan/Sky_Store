@@ -4,6 +4,7 @@
         <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_list' %}">Каталог</a>
         <a class="p-2 btn btn-outline-primary" href="{% url 'blog:blog_list' %}">Новостной блог</a>
         <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
+        <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:categories' %}">Категории</a>
         {% if user.is_authenticated %}
         <form method="post" action="{% url 'users:logout' %}">
             <a class="btn btn-outline-primary" href="{% url 'users:profile' %}">Профиль</a>
